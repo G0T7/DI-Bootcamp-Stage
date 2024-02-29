@@ -1,0 +1,27 @@
+ol {
+    list-style: upper-roman;
+}
+
+div {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+   
+  }
+
+img {
+    padding: 1x;
+    border: 10px solid rgb(255, 100, 3);
+    background-color: solid rgb(255, 94, 0);
+}
+
+.class {
+    align-content: center;
+    color: red;
+    
+    
+
+}
+
