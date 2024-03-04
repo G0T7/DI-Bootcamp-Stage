@@ -1,0 +1,53 @@
+/* Resetting default margin and padding */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('World_map.jpg');
+    background-size: cover;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.7); /* semi-transparent white */
+    text-align: center;
+    padding: 50px 0;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature img {
+    width: 100px;
+    height: 100px;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* semi-transparent black */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stacks flex items vertically */
+    }
+
+    .feature {
+        width: 80%; /* Take up full width on mobile */
+    }
+}
