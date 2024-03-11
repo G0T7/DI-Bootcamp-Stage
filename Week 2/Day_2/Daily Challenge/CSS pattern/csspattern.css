@@ -1,38 +1,59 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
 
-  body {
-    width: 90%;
-    margin-left: 10px;
-  }
+.pattern-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 
-  div,footer {
-    display: inline-block;
-    height: 100px;
-  }
+.shape {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  overflow: hidden;
+}
 
-  .container {
-    margin: 20px 0px;
-    width: 100%;
-    height: 100%;
-  }
+.shape::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, #ff0080, #8000ff);
+  transform: rotate(45deg);
+}
 
-  .left-pane, .right-pane {
-    border: 3px solid black;
-  }
+.shape::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #8000ff, #ff0080);
+  transform: rotate(-45deg);
+}
 
-  .left-pane {
-    width: 35%;
-    background: yellow;
-    margin-right: 3%;
-  }
+.shape:nth-child(3n+1) {
+  width: 120px;
+  height: 120px;
+}
 
-  .right-pane {
-    width: 60%;
-    background: yellow;
-  }
-  
- 
+.shape:nth-child(3n+2) {
+  width: 80px;
+  height: 80px;
+}
+
+.shape:nth-child(3n+3) {
+  width: 100px;
+  height: 100px;
+}
