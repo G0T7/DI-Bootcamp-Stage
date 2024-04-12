@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #c3ced6;
+}
+
+.container {
+    min-height: 300px;
+    width: 80%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding-right: 10%;
+    position: relative;
+   
+}
+
+.left-section {
+    grid-column: span 2;
+    height: 100%;
+    background-color: #898f93ad;
+}
+
+.right-section {
+    grid-column: span 5;
+    height: 100%;
+    background-color: #D6DBDF;
+    width: 250%;
+    
+}
+
+.left-section-contents{
+    padding: 1rem ;
+    
+}
+
+.profile {
+    width: 100%;
+    border-bottom: 2px solid #1B2631;
+}
+
+.profile .profile-image {
+    width: 100%;
+    border-radius: 50%;
+    border: 8px solid #1B2631;
+}
+
+.name {
+    color: #302f2f;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    padding: 1rem 0;
+}
+
+/* .contact-info { border-bottom: 2px solid #1B2631; } */
+.left-title {
+    color: #D6DBDF;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-top: 3rem;
+    background-color: black;
+    padding: 10px;
+}
+
+.contact-info ul {
+    padding-top: 10px;
+   
+}
+
+.contact-info ul {
+    position: relative;
+}
+.contact-info ul li {
+    position: relative;
+    list-style: none;
+    margin: 10px o;
+    cursor: pointer;
+}
+
+.contact-info ul li .icon {
+    display: inline-block;
+    width: 30px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+.contact-info ul li span {
+    color: #000000;
+    font-weight:300px;
+}
+
+.contact-info.education li {
+    margin-bottom: 15px;
+}
+
+.contact-info.education h6 {
+    color:#000000;
+    font-weight: 500;
+}
+
+.contact-info.education h6 :first-child {
+    color:#000000;
+    font-weight: 300;
+}
+
+
+.contact-info.education h5 {
+    color:#000000;
+    font-weight: 500;
+}
+
+.contact-info.education h3 {
+    color:#000000;
+    font-weight: 500;
+}
+
+.right-section-contents {
+    padding: 2rem 2rem;
+    width: 75%;
+}
+
+.right-title {
+    color: #f2f7fc;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #000000;
+    position: relative;
+}
+
+.experience-gap {
+    padding-bottom: 2rem;
+}
+.about-me-contents {
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 2rem;
+}
+
+
+
+.work-experience-contents,
+.skills-contents,
+.hobbiesandinterest-contents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 2rem;
+    
+}
+
+.exp-company-name,
+.skills-name {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    padding-bottom: .4rem;
+    
+}
+
+.exp-time-period {
+    font-size: 13px;
+    letter-spacing: 1px;
+    line-height: 2rem;
+}
+
+.exp-position {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    padding-bottom: .4rem;
+}
+
+.exp-desc,
+.skills-desc {
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 2rem;
+    border-left: 3px solid #a5a3a3;
+    padding-left: 5px;
+    
+}
+
+.exp-right,
+.exp-position,
+.exp-desc {
+    vertical-align: auto;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Media queries */
+@media screen and (max-width:780px) {
+    .experience-contents,
+    .skills-contents {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width:780px) {
+    .left-section {
+        grid-column: span 3;
+    }
+    
+    .right-section {
+        grid-column: span 4;
+    }
+    
+}
+
+@media screen and (max-width:1200px) {
+    .resume-contents {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width:390px) {
+    .resume-contents {
+        width: 100%;
+        margin: auto;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .left-title {
+        font-size: 18px;
+    }
+
+    .right-title {
+        font-size: 18px;
+    }
+
+    .contact-info ul li {
+        font-size: 12px;
+    }
+
+    .contact-info ul li i,
+    .contact-info.education ul li i {
+        /* padding-right: 1rem; */
+        font-size: 12px;
+    }
+
+    .skills ul li p {
+        font-size: 12px;
+    }
+
+    .about-me-contents {
+        font-size: 16px;
+        line-height: 1.5rem;
+    }
+
+    .exp-company-name,
+    .skills-name {
+        font-size: 18px;
+    }
+
+    .exp-time-period {
+        font-size: 16px;
+    }
+
+    .exp-position {
+        font-size: 18px;
+    }
+}
