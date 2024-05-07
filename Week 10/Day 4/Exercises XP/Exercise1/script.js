@@ -1,18 +1,21 @@
-//1.
-const fruits = ["apple", "orange"];
-const vegetables = ["carrot", "potato"];
-const result = ['bread', ...vegetables, 'chicken', ...fruits];
-console.log(result);
-//['bread', 'carrot', 'potato', 'chicken', 'apple', 'orange']//
-
-//2.
-const country = "USA";
-console.log([...country]);
-//['U', 'S', 'A']//
-
-//3.Bonus
-let newArray = [...[,,]];
-console.log(newArray);
-//[undefined, undefined]//
-
-
+// Function to fetch data from Giphy API
+async function fetchData() {
+    const apiUrl = 'https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My';
+  
+    try {
+      const response = await fetch(apiUrl);
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+  
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching data:', error.message);
+    }
+  }
+  
+  // Call the fetchData function
+  fetchData();
+  

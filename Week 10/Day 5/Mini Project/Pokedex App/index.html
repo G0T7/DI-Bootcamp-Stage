@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Pokedex App</title>
+</head>
+<body>
+	<div class="logo-container">
+		<img id="pokemon_Logo" src="logo.png">
+	</div>
+	<div class="instructions">
+		<h2>How to use:</h2>
+		<p><b>1-</b> Press the <b>green</b> button to get a random Pokémon</p>
+		<p><b>2-</b> Press the <b>left</b> and <b>right</b> buttons to see previous and next Pokémon.</p>
+	</div>
+	<div class="img-container">
+		<img class="pokedex-img" src="pokedex.png" width="880" height="610">
+	</div>
+	<button id="find_button" onclick="getData()"></button>
+
+	<div class="button-left-right">
+		<button id="previous" class="cross-square square-center-left" onclick="prevData()"></button>
+		<button id="next" class="cross-square square-center-right" onclick="nextData()"></button>
+	</div>
+	<img id="pokemon_Image" hidden="true">
+	<div id="box">
+		<img id="loadingImage" src="https://i.gifer.com/origin/28/2860d2d8c3a1e402e0fc8913cd92cd7a_w200.gif" hidden="true">
+		<h1 id="name"> </h1>
+		<p id="id"></p>
+		<p id="height"> </p>
+		<p id="weight"> </p>
+		<p id=""> </p>
+		<p id="type"> </p>
+		<p id="load"> </p>
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> 
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
