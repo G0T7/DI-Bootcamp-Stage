@@ -1,0 +1,35 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  #game-board {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+  }
+  
+  .board-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .board-cell.base {
+    background-color: blue;
+  }
+  
+  .board-cell.obstacle {
+    background-color: red;
+  }
+  
+  button {
+    margin: 10px;
+  }

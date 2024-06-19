@@ -1,0 +1,15 @@
+{
+  "name": "exercise3",
+  "version": "1.0.0",
+  "description": "Exercise 3 for XP Ninja",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-holidays": "^3.23.12"
+  }
+}

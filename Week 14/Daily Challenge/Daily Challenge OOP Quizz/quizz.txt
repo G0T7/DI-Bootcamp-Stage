@@ -1,0 +1,34 @@
+Part 1: Quiz
+What is a class?
+A class is a blueprint for creating objects (instances).
+ It defines a set of attributes and methods that the created objects will have.
+  In Python, a class is defined using the class keyword.
+
+What is an instance?
+An instance is a specific object created from a class. 
+Each instance has its own unique set of data, although it shares the structure and behavior defined by the class.
+
+What is encapsulation?
+Encapsulation is an OOP principle that bundles the data (attributes) and the methods (functions) that operate on the data into a single unit, a class.
+ It restricts direct access to some of the object's components, which can prevent the accidental modification of data.
+  This is typically achieved through the use of access modifiers like private and public.
+
+What is abstraction?
+Abstraction is the concept of hiding the complex implementation details of a system and exposing only the necessary and relevant features to the user. 
+It helps in reducing programming complexity and effort by providing a simplified model of the system.
+
+What is inheritance?
+Inheritance is a mechanism in OOP where a new class (child class) is derived from an existing class (parent class). 
+The child class inherits attributes and methods from the parent class, which allows for code reuse and the creation of a hierarchical relationship between classes.
+
+What is multiple inheritance?
+Multiple inheritance is a feature of some object-oriented programming languages in which a class can inherit attributes and methods from more than one parent class.
+ This allows a class to combine the behavior and properties of multiple classes.
+
+What is polymorphism?
+Polymorphism is the ability of different classes to be treated as instances of the same class through a common interface. 
+It allows methods to be used interchangeably with different objects, meaning the same method can have different implementations in different classes.
+
+What is method resolution order (MRO)?
+MRO is the order in which Python looks for a method or attribute in a hierarchy of classes. It is especially relevant in the context of multiple inheritance.
+ Python uses the C3 linearization algorithm to determine the MRO, which ensures a consistent and predictable order of method resolution.
