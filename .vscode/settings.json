@@ -18,9 +18,14 @@
         "Miata",
         "Moooo",
         "pokedex",
+        "pyowm",
+        "pytz",
         "Schoppik",
+        "stopwords",
         "susy",
-        "uppercased"
+        "uppercased",
+        "wordlist",
+        "ylabel"
     ],
     "git.ignoreLimitWarning": true
 }
