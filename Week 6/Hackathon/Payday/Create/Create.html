@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAYDAY EXPENSE TRACKER</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&amp;display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/create.css">
+  </head>
+  <body>
+    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+      <div class="container d-flex justify-content-between align-items-center"></div>
+      </header>
+        <div class="home-header">
+          <header
+            data-thq="thq-navbar"
+            class="navbarContainer home-navbar-interactive">
+            <span class="home-logo">PAYDAY</span>
+            <div data-thq="thq-navbar-nav" class="home-desktop-menu">
+              <nav class="home-links"></nav>
+              <div class="home-buttons">
+                <a href="../main.html">
+              <button class="home-login buttonFlat">Home</button>
+            </a>
+            <a href="../Login(Sign in)/index.html">
+              <button class="home-logout buttonFilled">Logout</button>
+            </a>
+              </header>
+              </div>
+         
+    <div class="wrapper">
+      <div class="container">
+        <div class="sub-container">
+          <!-- Budget -->
+          <div class="total-amount-container">
+            <h3>Income</h3>
+            <p class="hide error" id="budget-error">
+              Value cannot be empty or negative
+            </p>
+            <input
+              type="number"
+              id="total-amount"
+              placeholder="Enter Total Amount"
+            />
+            <button class="submit" id="total-amount-button">Set Budget</button>
+          </div>
+
+          <!-- Expenditure -->
+          <div class="user-amount-container">
+            <h3>Expenses</h3>
+            <p class="hide error" id="product-title-error">
+              Values cannot be empty
+            </p>
+            <input
+              type="text"
+              class="product-title"
+              id="product-title"
+              placeholder="Enter Title of Product"
+            />
+            <input
+              type="number"
+              id="user-amount"
+              placeholder="Enter Cost of Product"
+            />
+            <button class="submit" id="check-amount">Check Amount</button>
+          </div>
+        </div>
+        <!-- Output -->
+        <div class="output-container flex-space">
+          <div>
+            <p>Total Income</p>
+            <span id="amount">0</span>
+          </div>
+          <div>
+            <p>Expenses</p>
+            <span id="expenditure-value">0</span>
+          </div>
+          <div>
+            <p>Balance</p>
+            <span id="balance-amount">0</span>
+          </div>
+        </div>
+      </div>
+      <!-- List -->
+      <div class="list">
+        <h3>Expense Tracker List</h3>
+        <div class="list-container" id="list"></div>
+      </div>
+    </div>
+    <div class="home-footer">
+      <footer class="footerContainer home-footer1">
+        
+        <div class="home-separator"></div>
+        <div class="home-container4">
+          <span class="bodySmall home-text30">© 2023 PAYDAY, All Rights Reserved.</span>
+          <div class="home-icon-group1">
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Script -->
+    <script src="../js/script1.js"></script>
+    <script
+      data-section-id="navbar"
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts">
+    </script>
+  </body>
+</html>

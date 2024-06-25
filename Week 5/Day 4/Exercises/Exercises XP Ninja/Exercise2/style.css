@@ -1,0 +1,128 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #5470B0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.loading {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 50vh;
+    transform: translateY(-50%);
+  }
+  
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    position: relative;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .load {
+    z-index: 1;
+    position: relative;
+    background-size: contain;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 10vh;
+    transform: translateY(-50%);
+    font-size: 150%;
+  }
+  
+  .load-A  {
+    z-index: 2;
+    position: relative;
+    background-size: contain;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 20vh;
+    transform: translateY(-50%);
+    font-size: 150%;
+  }
+  
+  .l {animation: l 4s infinite;}
+  .o {animation: o 4s infinite;}
+  .a {animation: a 4s infinite;}
+  .d {animation: d 4s infinite;}
+  .i {animation: i 4s infinite;}
+  .n {animation: n 4s infinite;}
+  .g {animation: g 4s infinite;}
+  
+  @keyframes l {
+    0%              {opacity: 1;}
+    14.2857142856%  {opacity: 1;}
+    14.2857142857%  {opacity: 0;}
+    100%            {opacity: 0;}
+  }
+  
+  @keyframes o {
+    0%              {opacity: 0;}
+    7.14285714285%  {opacity: 0;}
+    7.14285714286%  {opacity: 1;}
+    21.4285714285%  {opacity: 1;}
+    21.4285714286%  {opacity: 0;}
+    100%            {opacity: 0;}
+  }
+  
+  @keyframes a {
+    0%              {opacity: 0;}
+    14.2857142856%  {opacity: 0;}
+    14.2857142857%  {opacity: 1;}
+    28.5714285713%  {opacity: 1;}
+    28.5714285714%  {opacity: 0;}
+    100%            {opacity: 0;}
+  }
+  
+  @keyframes d {
+    0%              {opacity: 0;}
+    21.4285714285%  {opacity: 0;}
+    21.4285714286%  {opacity: 1;}
+    35.7142857142%  {opacity: 1;}
+    35.7142857143%  {opacity: 0;}
+    100%            {opacity: 0;}
+  }
+  
+  @keyframes i {
+    0%              {opacity: 0;}
+    28.5714285713%  {opacity: 0;}
+    28.5714285714%  {opacity: 1;}
+    42.8571428570%  {opacity: 1;}
+    42.8571428571%  {opacity: 0;}
+    100%            {opacity: 0;}
+  }
+  
+  @keyframes n {
+    0%              {opacity: 0;}
+    35.7142857142%  {opacity: 0;}
+    35.7142857143%  {opacity: 1;}
+    50.0000000001%  {opacity: 1;}
+    50%             {opacity: 0;}
+    100%            {opacity: 0;}
+  }
+  
+  @keyframes g {
+    0%              {opacity: 0;}
+    42.8571428570%  {opacity: 0;}
+    42.8571428571%  {opacity: 1;}
+    57.1428571428%  {opacity: 1;}
+    57.1428571429%  {opacity: 0;}
+    100%            {opacity: 0;}
+  }
+  
+  

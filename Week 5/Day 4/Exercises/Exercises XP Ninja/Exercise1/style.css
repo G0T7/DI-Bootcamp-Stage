@@ -1,0 +1,39 @@
+@keyframes expand {
+    from {
+      transform: scale(0);
+      opacity: 0;
+      background: #5470B0;
+    }
+  }
+  
+  .add-box {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: #BDFCED;
+    color: #00DECF;
+    font-size: 50px;
+    vertical-align: middle;
+    border: 0;
+    cursor: pointer;
+    outline: none; /* Remove outline on focus */
+  
+    &:focus {
+      outline: 0;
+    }
+  }
+  
+  .box {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: #00DECF;
+    animation: expand .5s ease-in-out;
+    transition: opacity 0.5s ease; /* Add transition for opacity change */
+  }
+  
+  body {
+    background: #5470B0;
+  }
+  

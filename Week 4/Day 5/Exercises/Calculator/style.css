@@ -1,0 +1,65 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+}
+
+.calculator {
+    width: 320px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #444; /* Darker background color for the calculator */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.display {
+    grid-column: span 4;
+    height: 70px;
+    font-size: 36px;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #555; /* Slightly lighter background color for the display */
+    border: 2px solid #666; /* Border color for the display */
+    border-radius: 5px;
+}
+
+button {
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    
+    border-radius: 5px;
+    border: none;
+    background-color: #666; /* Dark gray background for buttons */
+    color: #fff; /* Text color for buttons */
+    cursor: pointer;
+    outline: none;
+}
+
+.operator, .utility, .equal {
+    background-color: #fbbd00; /* Yellow background color for operators, utility, and equal buttons */
+}
+
+.number {
+    color: #fff; /* Text color for number buttons */
+}
+
+.decimal {
+    color: #fff; /* Text color for decimal button */
+}
+
+button:hover {
+    background-color: #777; /* Slightly lighter background color on hover */
+}
+
+button:active {
+    transform: translateY(2px); /* Button press effect */
+}

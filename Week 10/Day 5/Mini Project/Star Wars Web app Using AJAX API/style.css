@@ -1,0 +1,129 @@
+body {
+    background-color: black;
+  
+    background-image: url("https://i.giphy.com/media/TxVVB6PfWMjE4/200.webp");
+  
+    font-family: 'Helvetica Neue';
+  
+    color: yellow;
+    text-align: center;
+  }
+  
+  /*.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+  }*/
+  
+  
+  .logo {
+    /* Use only the transparent PNG image for the logo */
+    background: url("starwars.png") center center no-repeat;
+
+    /* Specify the size of the background image */
+    background-size: contain;
+
+    /* Set the width and height */
+    width: 1000px;
+    height: 300px;
+
+    /* Center the element horizontally */
+    margin: 0 auto;
+
+    /* Add transition for smooth hover effect */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Add hover effect */
+.logo:hover {
+  
+    /* Example hover effect: change text color */
+    color: white; /* Change text color to white on hover */
+
+    /* Example hover effect: scale the logo */
+    transform: scale(1.1); /* Scale the logo by 10% on hover */
+}
+
+  
+  
+.info-container{
+  
+    border: 3px solid yellow;
+    border-radius: 15px;
+  
+    width: 600px;
+    height: 250px;
+  
+    margin: 0 auto;
+  
+    margin-top: -25px;
+  
+  }
+  
+  
+#button{
+      margin-top: 20px;
+  
+      border: 3px solid yellow;
+      border-radius: 10px;
+  
+      width: 180px;
+      height: 40px;
+  
+      font-weight: bold;
+      font-size: 20px;
+  
+      cursor: pointer;
+  }
+  
+  
+button:focus {
+  
+      outline:0;
+  }
+  
+#name{
+      color: white;
+  
+      font-size: 30px;
+      
+  }
+  
+#height{
+      color: white;
+      /*font-weight: bold;*/
+  
+      font-size: 20px;
+  }
+  
+#gender{
+      color: white;
+      /*font-weight: bold;*/
+  
+      font-size: 20px;
+  }
+  
+#birth-year{
+      color: white;
+      /*font-weight: bold;*/
+  
+      font-size: 20px;
+  }
+  
+#home-world{
+      color: white;
+      /*font-weight: bold;*/
+  
+      font-size: 20px;
+  }
+  
+  
+p{
+      color: white;
+      font-weight: bold;
+  
+      font-size: 30px;
+  }
+  
+  
+  
+  

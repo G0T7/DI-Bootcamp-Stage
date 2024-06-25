@@ -1,0 +1,14 @@
+.contact-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+  }
+  
+  .contact-form .form-control {
+    margin-bottom: 15px;
+  }
+  
+  .contact-form .btn {
+    background-color: #f04c40;
+    border: none;
+  }
+  
