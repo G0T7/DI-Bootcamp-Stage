@@ -4,6 +4,7 @@ import axios from 'axios';
 import './styles.css';
 import * as common from './common.js';
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const SignupForm = () => {
   const [username, setUsername] = useState('');
@@ -12,9 +13,11 @@ const SignupForm = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    var ctx = {
+    const ctx = {
       username: username,
       password: password,
       email: email
@@ -26,6 +29,8 @@ const SignupForm = () => {
       .then(response => {
         console.log('Signup successful:', response.data);
         setMessage('Signup successful! You can now log in.');
+        // Redirect to the login page after successful signup
+        setTimeout(() => navigate('/login'), 2000); // Optional delay for message display
       })
       .catch(error => {
         console.log(error);

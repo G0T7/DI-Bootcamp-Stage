@@ -152,6 +152,88 @@ nav ul li a {
   height: calc(100vh - 40px);
 }
 
+.start-container h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.start-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #555;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  margin: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.start-container button:hover {
+  background-color: #666;
+  transform: scale(1.05);
+}
+
+/* Game Over Screen Styles */
+.game-over-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 10; /* Ensure it appears above the gameboard */
+}
+
+.game-over-screen h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.game-over-screen p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.game-over-screen button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #555;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.game-over-screen button:hover {
+  background-color: #666;
+  transform: scale(1.05);
+}
+
+/* Scoreboard Styles */
+.scoreboard {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.scoreboard h2 {
+  margin-bottom: 10px;
+}
+
+.scoreboard p {
+  margin: 5px 0;
+}
+
 /* Leaderboard Styles */
 .leaderboard-container {
   max-width: 600px;
@@ -227,7 +309,7 @@ nav ul li a {
 }
 
 canvas {
-  width: 40%;
+  width: 100%;
   height: auto;
   border: 8px solid #fff;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
@@ -253,4 +335,109 @@ canvas {
 .game-over {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
+}
+
+
+/* Profile Container */
+.profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.profile-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-container label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.profile-container input[type="text"],
+.profile-container input[type="email"],
+.profile-container input[type="password"],
+.profile-container input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+.profile-container input[type="file"] {
+  padding: 5px;
+}
+
+.profile-container button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.profile-container button:hover {
+  background-color: #45a049;
+}
+
+.profile-container .error-message {
+  color: #ff0000; /* Red for errors */
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.profile-container .success-message {
+  color: #4caf50; /* Green for success messages */
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.guide-box {
+  margin-left: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #000000;
+}
+
+.guide-box h2 {
+  margin-top: 0;
+}
+
+.guide-box p {
+  margin: 5px 0;
+}
+
+.guide-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.guide-box li {
+  margin: 5px 0;
+}
+
+.quit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #d9534f;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.quit-button:hover {
+  background-color: #c9302c;
+  transform: scale(1.05);
 }

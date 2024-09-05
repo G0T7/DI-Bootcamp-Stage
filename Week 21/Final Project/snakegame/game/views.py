@@ -1,38 +1,54 @@
-# game/views.py
-
-from rest_framework import viewsets, status
-from rest_framework.response import Response
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+from rest_framework import status
 from django.contrib.auth.models import User
-from rest_framework.authtoken.models import Token
+from django.contrib.auth import authenticate
 from .models import GameScore, UserProfile
 from .serializers import GameScoreSerializer, UserProfileSerializer, UserSerializer
-from django.contrib.auth import authenticate
+from rest_framework.authtoken.models import Token
 from .ai import SnakeAI
-from django.http import HttpResponse
 
-# Home view for the root URL
+@api_view(['GET'])
 def home_view(request):
-    return HttpResponse("Welcome to the Snake Game!")
+    """
+    Home view for the root URL.
+    """
+    return Response("Welcome to the Snake Game!")
 
-# ViewSets for API endpoints
 class GameScoreViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for GameScore model.
+    """
     queryset = GameScore.objects.all().order_by('-score')
     serializer_class = GameScoreSerializer
 
 class UserProfileViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for UserProfile model.
+    """
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user.userprofile
 
 class UserViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for User model.
+    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
 
-# API Views
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def signup_view(request):
+    """
+    API endpoint for user signup.
+    """
     username = request.data.get('username')
     password = request.data.get('password')
     email = request.data.get('email')
@@ -52,18 +68,24 @@ def signup_view(request):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login_view(request):
+    """
+    API endpoint for user login.
+    """
     username = request.data.get('username')
     password = request.data.get('password')
     user = authenticate(username=username, password=password)
     if user is not None:
         token, created = Token.objects.get_or_create(user=user)
-        return Response({"token": token.key})
+        return Response({"token": token.key, "username": user.username})
     else:
         return Response({"error": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 def user_profile_view(request):
+    """
+    API endpoint for retrieving and updating user profile.
+    """
     user = request.user
     if request.method == 'GET':
         try:
@@ -79,31 +101,53 @@ def user_profile_view(request):
         if data.get('password'):
             user.set_password(data.get('password'))
         user.save()
-        profile = UserProfile.objects.get(user=user)
-        profile.avatar = data.get('avatar', profile.avatar)
+        profile, created = UserProfile.objects.get_or_create(user=user)
+        profile.bio = data.get('bio', profile.bio)
         profile.save()
         return Response({"message": "Profile updated successfully"})
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def leaderboard_view(request):
-    scores = GameScore.objects.all().order_by('-score')
+    """
+    API endpoint for retrieving the leaderboard.
+    """
+    scores = GameScore.objects.all().order_by('-score')[:10]  # Top 10 scores
     serializer = GameScoreSerializer(scores, many=True)
     return Response(serializer.data)
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def submit_score(request):
+    """
+    API endpoint for submitting a game score.
+    """
     user = request.user
     score = request.data.get('score')
+    
     if score is not None:
-        GameScore.objects.create(user=user, score=score)
+        GameScore.objects.create(player=user, score=score)
         return Response({"message": "Score submitted successfully"}, status=status.HTTP_201_CREATED)
+    
     return Response({"error": "Invalid score"}, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def save_score(request):
+    """
+    API endpoint for saving a game score.
+    """
+    serializer = GameScoreSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def ai_move(request):
+    """
+    API endpoint for getting the next move from the AI.
+    """
     data = request.data
     board_size = data.get('board_size')
     snake_position = data.get('snake_position')
@@ -117,11 +161,17 @@ def ai_move(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def start_game(request):
+    """
+    API endpoint for starting the game.
+    """
     # Placeholder for game start logic
     return Response({'status': 'Game started'})
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def restart_game_view(request):
+def restart_game(request):
+    """
+    API endpoint for restarting the game.
+    """
     # Placeholder for game restart logic
     return Response({'status': 'Game restarted'})

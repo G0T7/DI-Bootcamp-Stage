@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class GameScore(models.Model):
     player = models.ForeignKey(User, on_delete=models.CASCADE)
-    score = models.PositiveIntegerField()  # Changed to PositiveIntegerField for scores
+    score = models.PositiveIntegerField()
     date = models.DateTimeField(default=timezone.now)
     difficulty = models.CharField(
         max_length=20, 
@@ -20,7 +20,6 @@ class GameScore(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True, null=True)
-    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
 
     def __str__(self):
         return self.user.username

@@ -1,28 +1,22 @@
-# game/serializers.py
 from rest_framework import serializers
-from .models import GameScore, UserProfile
 from django.contrib.auth.models import User
+from .models import GameScore, UserProfile
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
-
     class Meta:
         model = User
-        fields = ['id', 'username', 'password']
-        extra_kwargs = {
-            'password': {'write_only': True, 'min_length': 8},
-        }
-
-    def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
-        return user
-
-class GameScoreSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = GameScore
-        fields = '__all__'
+        fields = ['username', 'email']
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+
     class Meta:
         model = UserProfile
-        fields = '__all__'
+        fields = ['user', 'bio']
+
+class GameScoreSerializer(serializers.ModelSerializer):
+    player = UserSerializer()
+
+    class Meta:
+        model = GameScore
+        fields = ['player', 'score', 'date', 'difficulty']

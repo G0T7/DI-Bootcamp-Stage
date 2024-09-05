@@ -1,7 +1,7 @@
-
+//src/components/Navbar.js
 
 import React from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Navbar.css'; 
 
 const Navbar = () => {
@@ -9,11 +9,11 @@ const Navbar = () => {
     <nav className="navbar">
       <h1>Retro Snake Game</h1>
       <ul>
-        <li><a href="http://localhost:3000/">Home</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/signup">Signup</a></li>
-        <li><a href="/leaderboard">Leaderboard</a></li>
-        <li><a href="/profile">Profile</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/signup">Signup</Link></li>
+        <li><Link to="/leaderboard">Leaderboard</Link></li>
+        <li><Link to="/profile">Profile</Link></li>
       </ul>
     </nav>
   );

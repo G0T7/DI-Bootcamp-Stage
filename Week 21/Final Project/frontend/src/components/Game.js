@@ -1,4 +1,9 @@
+
+
+// src/components/Game.js
+
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './styles.css';
 
 // Function to draw the snake on the canvas
@@ -51,9 +56,9 @@ const checkCollision = (snake1, snake2) => {
 };
 
 const Game = () => {
-  const [gameState, setGameState] = useState('START');
-  const [mode, setMode] = useState('Singleplayer');
-  const [difficulty, setDifficulty] = useState('Noob');
+  const location = useLocation();
+  const { mode, difficulty } = location.state || { mode: 'Singleplayer', difficulty: 'Noob' };
+  const [gameState, setGameState] = useState('PLAYING');
   const [direction, setDirection] = useState('RIGHT');
   const [snake, setSnake] = useState([{ x: 10, y: 10 }]);
   const [aiSnake, setAISnake] = useState([{ x: 20, y: 20 }]);
@@ -67,6 +72,7 @@ const Game = () => {
   const [player2Snake, setPlayer2Snake] = useState([{ x: 25, y: 25 }]);
   const [player2IsGrowing, setPlayer2IsGrowing] = useState(false);
   const canvasRef = useRef(null);
+  const navigate = useNavigate();
 
   // Function to get the game speed based on the selected difficulty
   const getSpeed = useCallback(() => {
@@ -209,54 +215,45 @@ const Game = () => {
     }
   }, [gameState, direction, aiDirection, player2Direction, snake, aiSnake, player2Snake, food, isGrowing, aiIsGrowing, player2IsGrowing, getSpeed, mode]);
 
+  // Function to handle quitting the game
+  const quitGame = () => {
+    console.log("Quitting the game...");
+    navigate('/'); // Navigates back to the home page (lobby)
+  };
+
   return (
     <div className={`game-container ${gameState === 'GAME_OVER' ? 'game-over' : ''}`}>
-      {gameState === 'START' ? (
-        <div className="start-screen">
-          <h1>Press Start 2P</h1>
-          <div>
-            <label htmlFor="mode" className="dropdown-label">Mode:</label>
-            <select
-              id="mode"
-              value={mode}
-              onChange={(e) => setMode(e.target.value)}
-              className="dropdown"
-            >
-              <option value="Singleplayer">Singleplayer</option>
-              <option value="Multiplayer">Multiplayer</option>
-              <option value="AI">AI</option>
-            </select>
+      <div className="canvas-container">
+        <canvas ref={canvasRef} width="600" height="600" />
+        <div>
+          <div className="scoreboard">
+            <h2>Scoreboard</h2>
+            <p>Player Score: {playerScore}</p>
+            {mode === 'Multiplayer' && <p>Player 2 Score: {playerScore}</p>}
+            {mode === 'AI' && <p>AI Score: {aiScore}</p>}
           </div>
-          <div>
-            <label htmlFor="difficulty" className="dropdown-label">Difficulty:</label>
-            <select
-              id="difficulty"
-              value={difficulty}
-              onChange={(e) => setDifficulty(e.target.value)}
-              className="dropdown"
-            >
-              <option value="Noob">Noob</option>
-              <option value="Wow">Wow</option>
-              <option value="God">God</option>
-            </select>
+          <div className="guide-box">
+            <h2>Guide</h2>
+            <p>Singleplayer: Arrow Keys</p>
+            <p>Player Snake: Lime</p>
+            <p>Food: Red</p>
+            <p>Multiplayer: Player 1 - Arrow Keys</p>
+            <p>Player 2 (Orange) - WASD</p>
+            <p>AI (Blue) - Self Control</p>
           </div>
-          <button className="start-button" onClick={() => setGameState('PLAYING')}>Start</button>
         </div>
-      ) : (
-        <>
-          <canvas ref={canvasRef} width="600" height="600" />
-          {gameState === 'GAME_OVER' && (
-            <div className="game-over-screen">
-              <h1>Game Over</h1>
-              <p>Score: {playerScore}</p>
-              {mode === 'AI' && <p className="score">AI Score: {aiScore}</p>}
-              <button className="restart-button" onClick={resetGame}>Restart</button>
-            </div>
-          )}
-        </>
-      )}
+        {gameState === 'GAME_OVER' && (
+          <div className="game-over-screen">
+            <h1>Game Over</h1>
+            <p>Score: {playerScore}</p>
+            {mode === 'AI' && <p className="score">AI Score: {aiScore}</p>}
+            <button className="restart-button" onClick={resetGame}>Restart</button>
+          </div>
+        )}
+      </div>
+      <button className="quit-button" onClick={quitGame}>Quit</button>
     </div>
   );
-}
+};
 
 export default Game;

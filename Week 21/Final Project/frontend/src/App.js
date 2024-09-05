@@ -1,4 +1,3 @@
-
 // src/App.js
 
 import React from 'react';
@@ -9,7 +8,8 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Game from './components/Game';
 import UserProfile from './components/UserProfile';
-import './styles.css'; 
+import Homepage from './components/Homepage'; // Import the Homepage component
+import './styles.css';
 
 function App() {
   return (
@@ -17,7 +17,8 @@ function App() {
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Game />} />
+          <Route path="/" element={<Homepage />} /> {/* Set Homepage as the default route */}
+          <Route path="/game" element={<Game />} /> {/* Add the Game route */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
@@ -29,4 +30,3 @@ function App() {
 }
 
 export default App;
-

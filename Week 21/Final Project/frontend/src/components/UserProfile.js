@@ -1,4 +1,3 @@
-// src/components/UserProfile.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import * as common from './common.js';
@@ -11,7 +10,6 @@ const UserProfile = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [avatar, setAvatar] = useState('');
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -20,13 +18,20 @@ const UserProfile = () => {
         headers: { Authorization: `Token ${token}` }
       };
       try {
-        const response = await axios.get(common.backend_url + 'api/user-profile/', config);
-        setProfile(response.data);
-        setUsername(response.data.user.username);
-        setEmail(response.data.user.email);
-        setAvatar(response.data.avatar || ''); // Use empty string if avatar is null
+        const response = await axios.get(`${common.backend_url}api/user-profile/`, config);
+        console.log('API response:', response.data); // Log the entire response data
+
+        // Check if response.data and response.data.user are defined
+        if (response.data && response.data.user) {
+          setProfile(response.data);
+          setUsername(response.data.user.username);
+          setEmail(response.data.user.email);
+        } else {
+          throw new Error('Profile data is not in the expected format.');
+        }
       } catch (error) {
-        setError('Error fetching profile');
+        console.error('Fetch profile error:', error.response ? error.response.data : error.message);
+        setError('Error fetching profile data.');
       } finally {
         setLoading(false);
       }
@@ -41,11 +46,16 @@ const UserProfile = () => {
       headers: { Authorization: `Token ${token}` }
     };
     try {
-      await axios.put(common.backend_url + 'api/user-profile/', { username, email, password, avatar }, config);
+      await axios.put(`${common.backend_url}api/user-profile/`, {
+        username,
+        email,
+        password
+      }, config);
       setError('');
       alert('Profile updated successfully');
     } catch (error) {
-      setError('Error updating profile');
+      console.error('Update profile error:', error.response ? error.response.data : error.message);
+      setError('Error updating profile.');
     }
   };
 
@@ -87,15 +97,6 @@ const UserProfile = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </label>
-      <label>
-        Avatar:
-        <select value={avatar} onChange={(e) => setAvatar(e.target.value)}>
-          <option value="">Select an avatar</option>
-          <option value="C:\Users\DaveN\OneDrive\Desktop\Final Project\Final Project\frontend\src\components\img\avatar 1.jpg">Avatar 1</option>
-          <option value="C:\Users\DaveN\OneDrive\Desktop\Final Project\Final Project\frontend\src\components\img\avatar 2.jpg">Avatar 2</option>
-          <option value="C:\Users\DaveN\OneDrive\Desktop\Final Project\Final Project\frontend\src\components\img\avatar 3.jpg">Avatar 3</option>
-        </select>
       </label>
       <button onClick={handleUpdate} className="start-button">Update Profile</button>
     </div>
